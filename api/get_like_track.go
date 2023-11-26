@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+
 	"github.com/pp-develop/musicrawl-spotify/pkg"
 
 	"github.com/go-redis/redis/v8"
@@ -135,7 +136,7 @@ func GetLikeTracks() {
 		DB:       0,            // 使用するDB
 	})
 
-	accessToken, err := pkg.getToken("tokens.txt")
+	accessToken, err := pkg.GetToken("tokens.txt")
 	if err != nil {
 		fmt.Println("Error getting token:", err)
 		return
