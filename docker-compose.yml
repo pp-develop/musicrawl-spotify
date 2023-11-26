@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    stdin_open: true
+    tty: true
+    ports:
+      - 8888:8888
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+
+volumes:
+  redis-data:
